@@ -7,14 +7,14 @@ module TinyFilter
 
       def filters(key, &block)
         key = key.to_sym
-        raise AlreadyDefinedError, "Filter already defined: #{key}" if __filters__.key?(key)
+        raise AlreadyDefinedError, "filter :#{key} defined more than once in #{self}" if __filters__.key?(key)
 
         __filters__[key] = block
       end
 
       def search(base_scope, **args)
         args.inject(base_scope) do |scope, (key, value)|
-          raise NotDefinedError, "Filter not defined: #{key}" unless __filters__.key?(key)
+          raise NotDefinedError, "unable to find filter :#{key} in #{self}" unless __filters__.key?(key)
 
           __filters__[key].call(scope, value)
         end

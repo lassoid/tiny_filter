@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+class <%= class_name %>Filter < ::ApplicationFilter
+<% keys.each do |key| %>
+  filters :<%= key %> do |scope, value|
+    scope
+  end
+<% end %>
+end

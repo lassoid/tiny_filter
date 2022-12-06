@@ -1,0 +1,8 @@
+Description:
+    Generates application filter - base class for all your filters.
+
+Examples:
+    `bin/rails generate tiny_filter:install`
+
+    This will create:
+        /app/filters/application_filter.rb

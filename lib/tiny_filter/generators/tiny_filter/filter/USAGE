@@ -1,0 +1,8 @@
+Description:
+    Generates a filter for provided model.
+
+Examples:
+    `bin/rails generate tiny_filter:filter post/comment title description`
+
+    This will create:
+        /app/filters/post/comment_filter.rb with blank filters for provided keys `title`, `description`.
