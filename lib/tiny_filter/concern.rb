@@ -5,8 +5,7 @@ module TinyFilter
     extend ActiveSupport::Concern
 
     included do
-      scope :filter_by, ->(**args) { TinyFilter::FilterFinder.find(self).search(self, **args) }
+      scope :filter_by, ->(args = {}) { TinyFilter::FilterFinder.find(self).search(self, args) }
     end
-
   end
 end

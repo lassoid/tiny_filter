@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "rails/generators"
-require_relative "../../lib/tiny_filter/generators/tiny_filter/filter/filter_generator"
+require_relative "../../../lib/tiny_filter/generators/tiny_filter/filter/filter_generator"
 
 RSpec.describe TinyFilter::Generators::FilterGenerator do
   def work_path
@@ -70,7 +70,7 @@ RSpec.describe TinyFilter::Generators::FilterGenerator do
     end
   end
 
-  context "with namespaced model name" do
+  context "with filter keys provided" do
     let(:model_name) { "post/comment" }
     let(:filter_keys) { %w[title description] }
 

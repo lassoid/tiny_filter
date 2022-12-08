@@ -8,6 +8,7 @@ module TinyFilter
       argument :keys, type: :array, required: false, default: []
 
       desc "This generator creates a filter for provided model"
+
       def create_filter
         template_file = File.join("app/filters", class_path, filter_file_name)
         template "filter.rb.erb", template_file
