@@ -22,7 +22,7 @@ RSpec.describe TinyFilter::Base do
     end
   end
 
-  describe "##search" do
+  describe "##filter" do
     let(:scope) { Post::Comment }
     let(:args) { { from: Date.today.beginning_of_day, to: Date.today.end_of_day } }
     let(:filter_class) { Post::CommentFilter }
@@ -31,7 +31,7 @@ RSpec.describe TinyFilter::Base do
       allow(scope).to receive(:where).with("created_at >= ?", args[:from]).and_return(scope)
       allow(scope).to receive(:where).with("created_at <= ?", args[:to]).and_return(scope)
 
-      filter_class.search(scope, args)
+      filter_class.filter(scope, args)
 
       expect(scope).to have_received(:where).with("created_at >= ?", args[:from])
       expect(scope).to have_received(:where).with("created_at <= ?", args[:to])
@@ -39,7 +39,7 @@ RSpec.describe TinyFilter::Base do
 
     it "raises an error if filter wasn't found" do
       expect do
-        filter_class.search(scope, undefined_filter: "test value")
+        filter_class.filter(scope, undefined_filter: "test value")
       end.to raise_error(TinyFilter::NotDefinedError, "unable to find filter :undefined_filter in #{filter_class}")
     end
   end

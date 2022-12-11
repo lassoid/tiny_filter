@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Kirill Usanov", "LassoID"]
   spec.email = ["kirill.usanov.dev@gmail.com"]
 
-  spec.summary = "Easy abstraction layer for filtering in Rails."
-  spec.description = "A simple tool for adding filters to your Rails models."
+  spec.summary = "Tiny filtering for Rails."
+  spec.description = "Simple filtering for your Rails models and enumerables."
   spec.homepage = "https://github.com/lassoid/tiny_filter"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
