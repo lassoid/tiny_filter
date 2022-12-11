@@ -20,7 +20,10 @@ RSpec.describe TinyFilter::Concern do
   it "raises an error if class is not an ActiveRecord::Base descendant" do
     expect do
       NotAModel.include described_class
-    end.to raise_error(TinyFilter::Error, "unable to include TinyFilter::Concern in #{NotAModel} that is not an ActiveRecord::Base descendant")
+    end.to raise_error(
+      TinyFilter::Error,
+      "unable to include TinyFilter::Concern in #{NotAModel} that is not an ActiveRecord::Base descendant",
+    )
   end
 
   it "executes filter with hash provided" do
