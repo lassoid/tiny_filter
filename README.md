@@ -1,5 +1,7 @@
 # TinyFilter
 
+[![Gem Version](https://badge.fury.io/rb/tiny_filter.svg)](https://badge.fury.io/rb/tiny_filter)
+
 TinyFilter is created to provide a simple object-oriented abstraction layer for filtering collections.
 It is mainly purposed for ActiveRecord collections, but you can also use it with any enumerable.
 
