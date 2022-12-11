@@ -13,6 +13,7 @@ module TinyFilter
 
       def filter(base_scope, args = {})
         args.inject(base_scope) do |scope, (key, value)|
+          key = key.to_sym
           raise NotDefinedError, "unable to find filter :#{key} in #{self}" unless __filters__.key?(key)
 
           __filters__[key].call(scope, value)

@@ -27,11 +27,21 @@ RSpec.describe TinyFilter::Base do
     let(:args) { { from: Date.today.beginning_of_day, to: Date.today.end_of_day } }
     let(:filter_class) { Post::CommentFilter }
 
-    it "executes provided filters" do
+    it "executes provided filters with symbol hash keys" do
       allow(scope).to receive(:where).with("created_at >= ?", args[:from]).and_return(scope)
       allow(scope).to receive(:where).with("created_at <= ?", args[:to]).and_return(scope)
 
       filter_class.filter(scope, args)
+
+      expect(scope).to have_received(:where).with("created_at >= ?", args[:from])
+      expect(scope).to have_received(:where).with("created_at <= ?", args[:to])
+    end
+
+    it "executes provided filters with string hash keys" do
+      allow(scope).to receive(:where).with("created_at >= ?", args[:from]).and_return(scope)
+      allow(scope).to receive(:where).with("created_at <= ?", args[:to]).and_return(scope)
+
+      filter_class.filter(scope, args.stringify_keys)
 
       expect(scope).to have_received(:where).with("created_at >= ?", args[:from])
       expect(scope).to have_received(:where).with("created_at <= ?", args[:to])
