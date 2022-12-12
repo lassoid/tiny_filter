@@ -1,6 +1,8 @@
 # TinyFilter
 
-[![Gem Version](https://badge.fury.io/rb/tiny_filter.svg)](https://badge.fury.io/rb/tiny_filter)
+[![Gem Version](https://badge.fury.io/rb/tiny_filter.svg)](https://rubygems.org/gems/tiny_filter)
+[![Gem downloads count](https://img.shields.io/gem/dt/tiny_filter)](https://rubygems.org/gems/tiny_filter)
+[![Github Actions CI](https://github.com/lassoid/tiny_filter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/lassoid/tiny_filter/actions/workflows/ci.yml)
 
 TinyFilter is created to provide a simple object-oriented abstraction layer for filtering collections.
 It is mainly purposed for ActiveRecord collections, but you can also use it with any enumerable.
@@ -60,7 +62,7 @@ class UserFilter < ApplicationFilter
 end
 
 UserFilter.filter(User, name: "John", surname: "Doe")
-# It performs like this inside:
+# Which is equivalent to:
 # User.where(first_name: "John").where(last_name: "Doe")
 ```
 
@@ -70,7 +72,7 @@ It guarantees that scope behaves the same way as in other filters in this class.
 ```ruby
 filters(:title) { |scope, value| scope.where("title ILIKE ?", value) }
 
-# bad - scope is meant to be ActiveRecord collection, but the return value is an array.
+# bad - scope is an ActiveRecord collection, but the return value is an array.
 filters(:from) { |scope, value| scope.select { |e| e.created_at >= value } }
 
 # good - scope and return value are both ActiveRecord collections.

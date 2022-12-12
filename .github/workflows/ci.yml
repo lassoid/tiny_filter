@@ -1,4 +1,4 @@
-name: TinyFilter CI
+name: CI
 
 on:
   push:

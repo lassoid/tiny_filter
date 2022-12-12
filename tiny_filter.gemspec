@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["kirill.usanov.dev@gmail.com"]
 
   spec.summary = "Tiny filtering for Rails."
-  spec.description = "Simple filtering for your Rails models and enumerables."
+  spec.description = "Simple filtering for ActiveRecord and enumerables."
   spec.homepage = "https://github.com/lassoid/tiny_filter"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
