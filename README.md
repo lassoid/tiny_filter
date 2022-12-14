@@ -79,7 +79,7 @@ filters(:from) { |scope, value| scope.select { |e| e.created_at >= value } }
 filters(:from) { |scope, value| scope.where("created_at >= ?", value) }
 ```
 
-So, if the initial scope for filtering is ActiveRecord collection,
+E.g, if the initial scope for filtering is an ActiveRecord collection,
 it is a bad practice for filter to return not an ActiveRecord collection.
 Otherwise you can face errors depending on the provided options order.
 
