@@ -44,7 +44,7 @@ Each filter is defined by calling `filters` method inside class body.
 
 `filters` accepts two arguments:
 - `key` - a filter name, used as identifier;
-- `block` - a block or proc/lambda with filter logic, that returns filtered collection and itself accepts two arguments:
+- `block` - a block with filter logic, that returns filtered collection and itself accepts two arguments:
   - `scope` - a collection that should be filtered;
   - `value` - a value for filtering.
 
