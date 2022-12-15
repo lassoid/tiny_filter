@@ -121,7 +121,7 @@ class My::Class < ApplicationRecord
 end
 ```
 
-### Using with Plain objects
+## Using with Plain objects
 
 You can use filters with non-ActiveRecord collections like so:
 
