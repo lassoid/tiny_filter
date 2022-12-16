@@ -48,7 +48,7 @@ Each filter is defined by calling `filters` method inside class body.
   - `scope` - a collection that should be filtered;
   - `value` - a value for filtering.
 
-When you perform filtering, provided keys indicate filters `key`s and provided values are passed to corresponding filters `block`s `value` param.
+When you perform filtering, provided keys indicate filters `key`s and provided values are passed to `value`s params in corresponding filters `block`s.
 `scope`s receive collections in a pipeline manner:
 _first_ executed filter receives _original collection_,
 _second and further_ receive the _return collection_ of the previous filter.
