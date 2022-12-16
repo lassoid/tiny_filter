@@ -4,6 +4,5 @@ require_relative "../application_record"
 
 class Post
   class Comment < ApplicationRecord
-
   end
 end

@@ -5,7 +5,6 @@ module TinyFilter
     SUFFIX = "Filter"
 
     class << self
-
       def find(object)
         filter_class(object)
       end
@@ -21,8 +20,6 @@ module TinyFilter
           raise Error, "unable to find appropriate filter class for #{object}"
         end
       end
-
     end
-
   end
 end

@@ -1,24 +1,29 @@
 # frozen_string_literal: true
 
 RSpec.describe TinyFilter::Base do
-  describe "##filters" do
-    let(:key) { :key }
-    let(:proc_object) { proc { |scope, _value| scope } }
+  def saved_filters(klass)
+    klass.instance_variable_get(:@__filters__)
+  end
 
-    after { described_class.instance_variable_set(:@__filters__, nil) }
+  let(:proc_object) { proc { |scope, _value| scope.all } }
+  let(:other_proc_object) { proc { |scope, _value| scope.none } }
+
+  after { described_class.instance_variable_set(:@__filters__, nil) }
+
+  describe "##filters" do
+    let(:key) { "test_filter#{rand(1..9)}".to_sym }
 
     it "saves filter" do
-      described_class.filters(:key, &proc_object)
+      described_class.filters(key, &proc_object)
 
-      expect(described_class.instance_variable_get(:@__filters__)[key]).to eq(proc_object)
+      expect(saved_filters(described_class)[key]).to eq(proc_object)
     end
 
-    it "raises an error if filter already exists" do
-      described_class.filters(:key, &proc_object)
+    it "overrides filter if it already exists" do
+      described_class.filters(key, &proc_object)
+      described_class.filters(key, &other_proc_object)
 
-      expect do
-        described_class.filters(:key, &proc_object)
-      end.to raise_error(TinyFilter::AlreadyDefinedError, "filter :#{key} defined more than once in #{described_class}")
+      expect(saved_filters(described_class)[key]).to eq(other_proc_object)
     end
   end
 
@@ -47,10 +52,36 @@ RSpec.describe TinyFilter::Base do
       expect(scope).to have_received(:where).with("created_at <= ?", args[:to])
     end
 
-    it "raises an error if filter wasn't found" do
+    it "raises an error if filter doesn't exist" do
       expect do
         filter_class.filter(scope, undefined_filter: "test value")
       end.to raise_error(TinyFilter::NotDefinedError, "unable to find filter :undefined_filter in #{filter_class}")
+    end
+  end
+
+  describe "##inherited" do
+    it "copies dup of self filters to subclass" do
+      base_filter = described_class
+      base_filter.filters(:base, &proc_object)
+
+      sub_filter = Class.new(base_filter)
+      sub_filter.filters(:sub, &other_proc_object)
+
+      expect(saved_filters(sub_filter).keys).to contain_exactly(:base, :sub)
+      expect(saved_filters(sub_filter).object_id).not_to eq(saved_filters(base_filter).object_id)
+      expect(saved_filters(sub_filter)[:base].object_id).not_to eq(saved_filters(base_filter)[:base].object_id)
+    end
+
+    it "copies dup of subclass filters to its subclass" do
+      base_filter = Class.new(described_class)
+      base_filter.filters(:base, &proc_object)
+
+      sub_filter = Class.new(base_filter)
+      sub_filter.filters(:sub, &other_proc_object)
+
+      expect(saved_filters(sub_filter).keys).to contain_exactly(:base, :sub)
+      expect(saved_filters(sub_filter).object_id).not_to eq(saved_filters(base_filter).object_id)
+      expect(saved_filters(sub_filter)[:base].object_id).not_to eq(saved_filters(base_filter)[:base].object_id)
     end
   end
 end

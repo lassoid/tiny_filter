@@ -8,9 +8,8 @@ module TinyFilter
       desc "This generator creates an application filter"
 
       def copy_application_filter
-        template "application_filter.rb", "app/filters/application_filter.rb"
+        template "application_filter.rb.tt", "app/filters/application_filter.rb"
       end
-
     end
   end
 end

@@ -11,5 +11,4 @@ require "tiny_filter/concern"
 module TinyFilter
   class Error < StandardError; end
   class NotDefinedError < Error; end
-  class AlreadyDefinedError < Error; end
 end

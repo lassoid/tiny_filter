@@ -7,5 +7,4 @@ class ApplicationRecord < ActiveRecord::Base
   include TinyFilter::Concern
 
   self.abstract_class = true
-
 end
