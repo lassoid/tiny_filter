@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Filters inheritance
+
 ## [0.1.1] - 2022-12-12
 
 - Fixed generators

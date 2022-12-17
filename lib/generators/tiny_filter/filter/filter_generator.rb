@@ -11,7 +11,7 @@ module TinyFilter
 
       def create_filter
         template_file = File.join("app/filters", class_path, filter_file_name)
-        template "filter.rb.erb", template_file
+        template "filter.rb.tt", template_file
       end
 
       private
@@ -19,7 +19,6 @@ module TinyFilter
       def filter_file_name
         "#{file_name}_filter.rb"
       end
-
     end
   end
 end

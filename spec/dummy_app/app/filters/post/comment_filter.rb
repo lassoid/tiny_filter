@@ -1,16 +1,11 @@
 # frozen_string_literal: true
 
-require_relative "../application_filter"
+require_relative "../timestamp_filter"
 
 class Post
-  class CommentFilter < ApplicationFilter
-    filters :from do |scope, value|
-      scope.where("created_at >= ?", value)
+  class CommentFilter < TimestampFilter
+    filters :content do |scope, value|
+      scope.where(content: value)
     end
-
-    filters :to do |scope, value|
-      scope.where("created_at <= ?", value)
-    end
-
   end
 end

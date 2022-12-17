@@ -17,9 +17,6 @@ Layout/EmptyLinesAroundAccessModifier:
 Layout/IndentationConsistency:
   EnforcedStyle: normal
 
-Layout/EmptyLinesAroundClassBody:
-  EnforcedStyle: empty_lines_special
-
 Style/SymbolArray:
   EnforcedStyle: percent
 

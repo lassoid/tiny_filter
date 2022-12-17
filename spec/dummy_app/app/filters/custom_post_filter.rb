@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "application_filter"
+require_relative "timestamp_filter"
 
-class CustomPostFilter < ApplicationFilter
+class CustomPostFilter < TimestampFilter
   filters :title do |scope, value|
     scope.where(title: value)
   end
@@ -10,5 +10,4 @@ class CustomPostFilter < ApplicationFilter
   filters :description do |scope, value|
     scope.where(description: value)
   end
-
 end

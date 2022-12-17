@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 require "tiny_filter"
+require "active_record"
 require_relative "dummy_app/app/models/post"
 require_relative "dummy_app/app/models/post/comment"
 require_relative "dummy_app/app/filters/post/comment_filter"
 require_relative "dummy_app/app/filters/custom_post_filter"
 
 class InitializeDb < ActiveRecord::Migration[6.0]
-
   def change
     create_table :posts do |t|
       t.string :title
@@ -16,11 +16,10 @@ class InitializeDb < ActiveRecord::Migration[6.0]
     end
 
     create_table :post_comments do |t|
-      t.text :description
+      t.text :content
       t.datetime :created_at
     end
   end
-
 end
 
 def reinitialize_database
