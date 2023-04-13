@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "tiny_filter"
   spec.version = TinyFilter::VERSION
   spec.authors = ["Kirill Usanov", "LassoID"]
-  spec.email = ["kirill.usanov.dev@gmail.com"]
+  spec.email = "kirill@lassoid.ru"
 
   spec.summary = "Tiny filtering for Rails."
   spec.description = "Simple filtering for ActiveRecord and enumerables."
