@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [0.2.1] - 2023-10-20
+
+- Do not fix max dependencies versions
+- Improved generators
+
 ## [0.2.0] - 2022-12-17
 
 - Filters inheritance
