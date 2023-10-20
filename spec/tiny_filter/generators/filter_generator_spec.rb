@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "rails/generators"
 require_relative "../../../lib/generators/tiny_filter/filter/filter_generator"
 
 RSpec.describe TinyFilter::Generators::FilterGenerator do

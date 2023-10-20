@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "rails/generators"
+
 module TinyFilter
   module Generators
     class FilterGenerator < ::Rails::Generators::NamedBase
