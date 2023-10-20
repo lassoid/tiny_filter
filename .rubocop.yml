@@ -3,6 +3,7 @@ require:
   - rubocop-rails
   - rubocop-rake
   - rubocop-rspec
+  - rubocop-factory_bot
 
 inherit_gem:
   rubocop-shopify: rubocop.yml
