@@ -30,7 +30,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Dependencies
-  spec.add_dependency "activesupport", ">= 6.0"
   spec.add_development_dependency "activerecord", ">= 6.0"
   spec.add_development_dependency "railties", ">= 6.0"
   spec.add_development_dependency "rake"
