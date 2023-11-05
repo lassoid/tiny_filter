@@ -40,13 +40,13 @@ RSpec.describe TinyFilter::Generators::FilterGenerator do
   context "with simple model name" do
     let(:model_name) { "post" }
 
-    it "creates post filter file" do
+    it "creates a post filter file" do
       described_class.start([model_name], destination_root: work_path)
 
       expect(File).to exist(file_path(model_name))
     end
 
-    it "creates post filter without filters" do
+    it "creates a post filter without filters" do
       described_class.start([model_name], destination_root: work_path)
 
       expect(File.read(file_path(model_name))).to eq(expected_file_content(model_name))
@@ -56,13 +56,13 @@ RSpec.describe TinyFilter::Generators::FilterGenerator do
   context "with namespaced model name" do
     let(:model_name) { "post/comment" }
 
-    it "creates post comment filter file" do
+    it "creates a post comment filter file" do
       described_class.start([model_name], destination_root: work_path)
 
       expect(File).to exist(file_path(model_name))
     end
 
-    it "creates post comment filter without filters" do
+    it "creates a post comment filter without filters" do
       described_class.start([model_name], destination_root: work_path)
 
       expect(File.read(file_path(model_name))).to eq(expected_file_content(model_name))
@@ -73,13 +73,13 @@ RSpec.describe TinyFilter::Generators::FilterGenerator do
     let(:model_name) { "post/comment" }
     let(:filter_keys) { %w[title description] }
 
-    it "creates post comment filter file" do
+    it "creates a post comment filter file" do
       described_class.start([model_name] + filter_keys, destination_root: work_path)
 
       expect(File).to exist(file_path(model_name))
     end
 
-    it "creates post comment filter with provided filters" do
+    it "creates a post comment filter with provided filters" do
       described_class.start([model_name] + filter_keys, destination_root: work_path)
 
       expect(File.read(file_path(model_name))).to eq(expected_file_content(model_name, filter_keys))

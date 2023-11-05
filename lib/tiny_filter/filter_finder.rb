@@ -16,9 +16,17 @@ module TinyFilter
           object.filter_class
         elsif object.respond_to?(:model_name)
           Object.const_get("#{object.model_name}#{SUFFIX}")
+        elsif object.respond_to?(:model)
+          if object.model.respond_to?(:filter_class)
+            object.model.filter_class
+          else
+            Object.const_get("#{object.model}#{SUFFIX}")
+          end
         else
-          raise Error, "unable to find appropriate filter class for #{object}"
+          Object.const_get("#{object}#{SUFFIX}")
         end
+      rescue NameError
+        raise Error, "unable to find appropriate filter class for #{object}"
       end
     end
   end

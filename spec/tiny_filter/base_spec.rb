@@ -13,13 +13,13 @@ RSpec.describe TinyFilter::Base do
   describe "##filters" do
     let(:key) { "test_filter#{rand(1..9)}".to_sym }
 
-    it "saves filter" do
+    it "saves the filter" do
       described_class.filters(key, &proc_object)
 
       expect(saved_filters(described_class)[key]).to eq(proc_object)
     end
 
-    it "overrides filter if it already exists" do
+    it "overrides the filter if it already exists" do
       described_class.filters(key, &proc_object)
       described_class.filters(key, &other_proc_object)
 
@@ -52,7 +52,7 @@ RSpec.describe TinyFilter::Base do
       expect(scope).to have_received(:where).with("created_at <= ?", args[:to])
     end
 
-    it "raises an error if filter doesn't exist" do
+    it "raises an error if the filter doesn't exist" do
       expect do
         filter_class.filter(scope, undefined_filter: "test value")
       end.to raise_error(TinyFilter::NotDefinedError, "unable to find filter :undefined_filter in #{filter_class}")
@@ -60,7 +60,7 @@ RSpec.describe TinyFilter::Base do
   end
 
   describe "##inherited" do
-    it "copies dup of self filters to subclass" do
+    it "copies dup of self filters to the subclass" do
       base_filter = described_class
       base_filter.filters(:base, &proc_object)
 
@@ -72,7 +72,7 @@ RSpec.describe TinyFilter::Base do
       expect(saved_filters(sub_filter)[:base].object_id).not_to eq(saved_filters(base_filter)[:base].object_id)
     end
 
-    it "copies dup of subclass filters to its subclass" do
+    it "copies dup of the subclass filters to its subclass" do
       base_filter = Class.new(described_class)
       base_filter.filters(:base, &proc_object)
 
