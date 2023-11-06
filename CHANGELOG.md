@@ -1,4 +1,7 @@
-## [Unreleased]
+## [0.3.0] - 2023-11-06
+
+- No runtime dependencies!
+- Sequel integration
 
 ## [0.2.1] - 2023-10-20
 
