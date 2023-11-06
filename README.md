@@ -83,9 +83,9 @@ Thus if the initial scope for filtering is an ActiveRecord collection,
 it is a bad practice for filter to return not an ActiveRecord collection.
 Otherwise you can face errors depending on the provided options order.
 
-## ActiveRecord integration
+## ORM integration
 
-### Helper
+### ActiveRecord
 
 TinyFilter provides a simple concern, that adds just one method `filter_by`, that can be used in ActiveRecord method chaining.
 
@@ -102,6 +102,23 @@ Now you can use filtering everywhere in your model method chaining.
 ```ruby
 Post.where(title: "something interesting").filter_by(from: 2.days.ago, to: 1.day.ago).order(:title)
 Post.filter_by(from: 1.year.ago)
+```
+
+### Sequel
+
+The previously mentioned filter concern can also be used in Sequel models.
+
+```ruby
+class Artist < Sequel::Model
+  include TinyFilter::Concern
+end
+```
+
+Querying examples:
+
+```ruby
+Artist.where(name: "Kirill").filter_by(from: 2.days.ago, to: 1.day.ago).order(:name).all
+Artist.filter_by(from: 1.year.ago).all
 ```
 
 ### Naming convention
