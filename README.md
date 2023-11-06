@@ -5,7 +5,7 @@
 [![Github Actions CI](https://github.com/lassoid/tiny_filter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/lassoid/tiny_filter/actions/workflows/ci.yml)
 
 TinyFilter is created to provide a simple object-oriented abstraction layer for filtering collections.
-It is mainly purposed for ActiveRecord collections, but you can also use it with any enumerable.
+It is mainly purposed for ActiveRecord/Sequel models, but you can also use it with any enumerable.
 
 ```ruby
 Post.where(title: "Wow!").filter_by(from: 2.days.ago, to: 1.day.ago).order(:created_at)
@@ -87,7 +87,8 @@ Otherwise you can face errors depending on the provided options order.
 
 ### ActiveRecord
 
-TinyFilter provides a simple concern, that adds just one method `filter_by`, that can be used in ActiveRecord method chaining.
+TinyFilter provides a simple concern, that adds just one method `filter_by`,
+that can be used in ActiveRecord method chaining.
 
 Just include `TinyFilter::Concern` in your model and that's all!
 
@@ -126,7 +127,8 @@ Artist.filter_by(from: 1.year.ago).all
 By default a filter class and a model are mapped by a _model name_ with a _suffix_ `Filter`.
 For example, the model `My::Class` by default will use the `My::ClassFilter` as a filter class.
 
-You can customize this behavior by implementing a `filter_class` class method with an appropriate class as a return value.
+You can customize this behavior by implementing a `filter_class` class method
+with an appropriate class as a return value.
 
 ```ruby
 class My::Class < ApplicationRecord
@@ -140,7 +142,7 @@ end
 
 ## Using with Plain objects
 
-You can use filters with non-ActiveRecord collections like so:
+You can use filters with Plain Old Ruby collections like so:
 
 ```ruby
 options    # filter options, for example: `{ from: 2.days.ago, to: 1.day.ago }`

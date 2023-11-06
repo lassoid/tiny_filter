@@ -9,8 +9,6 @@ SequelModel = Class.new(Sequel::Model)
 class NotAModel; end
 
 RSpec.describe TinyFilter::Concern do
-  let(:args) { { from: Date.today.beginning_of_day, to: Date.today.end_of_day } }
-
   it "adds the filter_by scope to the model on include if the class is an ActiveRecord::Base descendant" do
     expect(ActiveRecordModel).not_to respond_to(:filter_by)
 
@@ -19,7 +17,7 @@ RSpec.describe TinyFilter::Concern do
     expect(ActiveRecordModel).to respond_to(:filter_by)
   end
 
-  it "adds the filter_by dataset method to the model on include if the class is an Sequel::Model descendant" do
+  it "adds the filter_by dataset method to the model on include if the class is a Sequel::Model descendant" do
     expect(SequelModel).not_to respond_to(:filter_by)
 
     SequelModel.include described_class
