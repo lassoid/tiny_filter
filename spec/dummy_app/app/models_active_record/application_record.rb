@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-require "active_record"
-require_relative "../../../../lib/tiny_filter/concern"
+ActiveRecord::Base.establish_connection(
+  adapter: "sqlite3",
+  database: "spec/dummy_app/db/db.sqlite3",
+)
 
 class ApplicationRecord < ActiveRecord::Base
   include TinyFilter::Concern

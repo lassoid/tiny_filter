@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "application_filter"
-
-class TimestampFilter < ApplicationFilter
+class ActiveRecordFilter < TinyFilter::Base
   filters :from do |scope, value|
     scope.where("created_at >= ?", value)
   end

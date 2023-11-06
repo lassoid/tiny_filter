@@ -18,13 +18,13 @@ RSpec.describe TinyFilter::Generators::InstallGenerator do
 
   after { FileUtils.rm_rf("#{work_path}/app") }
 
-  it "creates application filter file" do
+  it "creates an application filter file" do
     described_class.start([], destination_root: work_path)
 
     expect(File).to exist(file_path)
   end
 
-  it "creates application filter with valid content" do
+  it "creates an application filter with valid content" do
     described_class.start([], destination_root: work_path)
 
     expect(File.read(file_path)).to eq(expected_file_content)

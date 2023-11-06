@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "../timestamp_filter"
+require_relative "../active_record_filter"
+require_relative "../../models_active_record/post"
 
 class Post
-  class CommentFilter < TimestampFilter
+  class CommentFilter < ActiveRecordFilter
     filters :content do |scope, value|
       scope.where(content: value)
     end
