@@ -1,3 +1,7 @@
+## [0.3.1] - 2023-11-14
+
+- Removed ActiveSupport `require`
+
 ## [0.3.0] - 2023-11-06
 
 - No runtime dependencies!
