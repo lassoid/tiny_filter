@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Rails/ApplicationRecord
 class ActiveRecordModel < ActiveRecord::Base; end
-# rubocop:enable Rails/ApplicationRecord
 
 SequelModel = Class.new(Sequel::Model)
 
