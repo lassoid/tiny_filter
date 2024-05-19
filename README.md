@@ -2,7 +2,7 @@
 
 [![Gem Version](https://img.shields.io/gem/v/tiny_filter?color=blue&label=version)](https://rubygems.org/gems/tiny_filter)
 [![Gem downloads count](https://img.shields.io/gem/dt/tiny_filter)](https://rubygems.org/gems/tiny_filter)
-[![Github Actions CI](https://github.com/lassoid/tiny_filter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/lassoid/tiny_filter/actions/workflows/ci.yml)
+[![Github Actions CI](https://github.com/lassoid/tiny_filter/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/lassoid/tiny_filter/actions/workflows/main.yml)
 
 TinyFilter is created to provide a simple object-oriented abstraction layer for filtering collections.
 It is mainly purposed for ActiveRecord/Sequel models, but you can also use it with any enumerable.
