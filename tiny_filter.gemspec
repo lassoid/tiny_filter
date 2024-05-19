@@ -31,6 +31,8 @@ Gem::Specification.new do |spec|
 
   # Dependencies
   spec.add_development_dependency "activerecord", ">= 6.0"
+  spec.add_development_dependency "database_cleaner-active_record"
+  spec.add_development_dependency "database_cleaner-sequel"
   spec.add_development_dependency "railties", ">= 6.0"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
@@ -41,5 +43,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "rubocop-shopify"
   spec.add_development_dependency "sequel"
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "sqlite3", "~> 1.4" # AR doesn't support 2+
 end
