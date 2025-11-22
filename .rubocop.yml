@@ -37,9 +37,6 @@ RSpec/NestedGroups:
 RSpec/ExampleLength:
   Max: 10
 
-RSpec/ContextWording:
-  Enabled: false
-
 RSpec/MultipleExpectations:
   Enabled: false
 
@@ -47,7 +44,4 @@ Rails/ApplicationRecord:
   Enabled: false
 
 Rails/Date:
-  Enabled: false
-
-RSpec/SpecFilePathFormat:
   Enabled: false
