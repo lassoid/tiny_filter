@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rake
@@ -9,7 +9,7 @@ inherit_gem:
   rubocop-shopify: rubocop.yml
 
 AllCops:
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
   NewCops: enable
 
 Layout/EmptyLinesAroundAccessModifier:
@@ -37,9 +37,6 @@ RSpec/NestedGroups:
 RSpec/ExampleLength:
   Max: 10
 
-RSpec/ContextWording:
-  Enabled: false
-
 RSpec/MultipleExpectations:
   Enabled: false
 
@@ -47,10 +44,4 @@ Rails/ApplicationRecord:
   Enabled: false
 
 Rails/Date:
-  Enabled: false
-
-RSpec/FilePath:
-  Enabled: false
-
-RSpec/SpecFilePathFormat:
   Enabled: false

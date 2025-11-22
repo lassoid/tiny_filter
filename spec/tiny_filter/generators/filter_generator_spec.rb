@@ -20,7 +20,7 @@ RSpec.describe TinyFilter::Generators::FilterGenerator do
       # frozen_string_literal: true
 
       class #{class_from_model_name(model_name)}Filter < ::ApplicationFilter
-      #{keys.any? ? expected_filter_body(keys) : nil}
+      #{expected_filter_body(keys) if keys.any?}
       end
     CONTENT
   end
