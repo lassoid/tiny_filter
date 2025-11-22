@@ -37,11 +37,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "rubocop-factory_bot"
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "rubocop-rails"
   spec.add_development_dependency "rubocop-rake"
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "rubocop-shopify"
   spec.add_development_dependency "sequel"
-  spec.add_development_dependency "sqlite3", "~> 1.4" # AR doesn't support 2+
+  spec.add_development_dependency "sqlite3"
 end
