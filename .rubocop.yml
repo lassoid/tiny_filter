@@ -12,6 +12,10 @@ AllCops:
   TargetRubyVersion: 3.4
   NewCops: enable
 
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+
 Layout/EmptyLinesAroundAccessModifier:
   EnforcedStyle: around
 
@@ -44,4 +48,7 @@ Rails/ApplicationRecord:
   Enabled: false
 
 Rails/Date:
+  Enabled: false
+
+Naming/InclusiveLanguage:
   Enabled: false
